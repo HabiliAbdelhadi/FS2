@@ -55,7 +55,6 @@ exports.createCourse = async (req, res) => {
 exports.editCourse = async (req, res) => {
   try {
     const courseId = req.params.id;
-    const { title, description, type } = req.body;
 
     // Find the course by ID
     const course = await Course.findById(courseId);
@@ -69,9 +68,9 @@ exports.editCourse = async (req, res) => {
       fs.unlinkSync(course.thumbnail);
       course.thumbnail = req.file.path;
     }
-    course.title = title;
-    course.description = description;
-    course.type = type;
+    if (req.body.title) course.title = req.body.title;
+    if (req.body.description) course.description = req.body.description;
+    if (req.body.type) course.type = req.body.type;
 
     await course.save();
 
