@@ -20,6 +20,18 @@ const chapterSchema = mongoose.Schema({
   },
 });
 
+chapterSchema.pre("delete", async function (next) {
+  try {
+    // Loop through the files and delete them
+    for (const file of this.files) {
+      fs.unlinkSync(file);
+    }
+    next();
+  } catch (error) {
+    next(error);
+  }
+});
+
 const Chapter = mongoose.model("Chapter", chapterSchema);
 
 module.exports = Chapter;

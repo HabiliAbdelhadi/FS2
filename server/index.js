@@ -34,6 +34,7 @@ app.use(express.static("./public"));
 app.use(require("./routes/userRouter"));
 app.use(require("./routes/authRouter"));
 app.use(require("./routes/courseRouter"));
+app.use(require("./routes/chapterRouter"));
 ///////////////////////////////////////////////
 app.listen(process.env.PORT, () => {
   console.log("connected at port :" + process.env.PORT);
