@@ -25,7 +25,6 @@ exports.deleteCourse = async (req, res) => {
     const data = await Course.findByIdAndDelete({ _id: req.params.id });
     if (!data) return res.status(404).json({ message: "Course introuvable" });
     fs.unlinkSync(data.thumbnail);
-    console.log("slm");
     await Chapter.deleteMany({ course: data._id });
     res.json(data);
   } catch (error) {
@@ -52,7 +51,7 @@ exports.createCourse = async (req, res) => {
   }
 };
 
-// Edit course details (including thumbnail)
+// Edit course (but not the chapters??) yes?
 exports.editCourse = async (req, res) => {
   try {
     const courseId = req.params.id;
@@ -66,23 +65,14 @@ exports.editCourse = async (req, res) => {
     }
 
     // Check if the 'thumbnail' file is included in the request
-    if (req.files && req.files.length > 0) {
-      // Delete the old thumbnail before updating
-      if (course.thumbnail) {
-        fs.unlinkSync(course.thumbnail);
-      }
-
-      // Update the thumbnail field
-      const thumbnail = req.files[0].path;
-      course.thumbnail = thumbnail;
+    if (req.file) {
+      fs.unlinkSync(course.thumbnail);
+      course.thumbnail = req.file.path;
     }
-
-    // Update the course fields
     course.title = title;
     course.description = description;
     course.type = type;
 
-    // Save the updated course
     await course.save();
 
     res.json(course);
