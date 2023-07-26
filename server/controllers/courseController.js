@@ -1,6 +1,7 @@
 const Course = require("../models/Course");
 const User = require("../models/User");
 const fs = require("fs");
+const Chapter = require("../models/Chapter");
 
 exports.listCourse = async (req, res) => {
   try {

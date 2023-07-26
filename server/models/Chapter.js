@@ -21,7 +21,7 @@ const chapterSchema = mongoose.Schema({
   },
 });
 
-chapterSchema.pre("findOneAndDelete", async function (next) {
+chapterSchema.pre(["findOneAndDelete", "deleteMany"], async function (next) {
   try {
     const chapterToDelete = await Chapter.findOne(this);
 

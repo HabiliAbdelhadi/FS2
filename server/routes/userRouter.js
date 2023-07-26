@@ -3,11 +3,11 @@ const userController = require("../controllers/userController");
 const requireAuth = require("../middleware/authMiddleware");
 const userRouter = Router();
 
-userRouter.get("/users", requireAuth, userController.listUsers);
+userRouter.get("/users", userController.listUsers);
 
-userRouter.get("/users/:id", requireAuth, userController.getUser);
+userRouter.get("/users/:id", userController.getUser);
 
-userRouter.delete("/users/:id", requireAuth, userController.deleteUser);
+userRouter.delete("/users/:id", userController.deleteUser);
 
 userRouter.get("/users/:id/verify/:token/", userController.verifyUser);
 
