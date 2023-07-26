@@ -43,11 +43,12 @@ exports.createChapter = async (req, res) => {
 };
 exports.deleteChapter = async (req, res) => {
   try {
-    const data = await Chapter.findByIdAndDelete({ _id: req.params.id });
+    const data = await Chapter.findByIdAndDelete(req.params.id);
     if (!data) return res.status(404).json({ message: "Chapter introuvable" });
     //the files are deleted in the pre remove function
     res.json(data);
   } catch (error) {
+    console.log(error);
     res.status(500).json(error);
   }
 };

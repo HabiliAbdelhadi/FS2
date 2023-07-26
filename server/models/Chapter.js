@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const fs = require("fs");
 
 const chapterSchema = mongoose.Schema({
   title: {
@@ -20,11 +21,13 @@ const chapterSchema = mongoose.Schema({
   },
 });
 
-chapterSchema.pre("delete", async function (next) {
+chapterSchema.pre("findOneAndDelete", async function (next) {
   try {
-    // Loop through the files and delete them
-    for (const file of this.files) {
+    const chapterToDelete = await Chapter.findOne(this);
+
+    for (const file of chapterToDelete.files) {
       fs.unlinkSync(file);
+      // console.log(`Deleted file: ${file}`);
     }
     next();
   } catch (error) {
