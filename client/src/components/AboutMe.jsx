@@ -3,8 +3,6 @@ import { Container, Typography, Avatar, Box, Button } from "@mui/material";
 import Card from "@mui/material/Card";
 import { Link } from "react-router-dom";
 
-import IntroVid from "./IntroVid";
-
 const AboutMe = () => {
   return (
     <div

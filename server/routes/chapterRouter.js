@@ -17,10 +17,17 @@ chapterRouter.post(
   chapterController.createChapter
 );
 
-// chapterRouter.put(
-//   "/chapters/:id",
-//   multer.uploadMulti,
-//   chapterController.editChapter
-// );
+chapterRouter.put("/chapters/:id", chapterController.editChapter);
+
+chapterRouter.put(
+  "/chapters/add/:id",
+  multer.uploadMulti,
+  chapterController.addFiles
+);
+chapterRouter.put(
+  "/chapters/remove/:id",
+  multer.uploadMulti,
+  chapterController.removeFiles
+);
 
 module.exports = chapterRouter;

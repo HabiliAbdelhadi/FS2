@@ -36,10 +36,9 @@ userSchema.pre("save", async function (next) {
 });
 
 //login
-const validator = require("validator");
 
 userSchema.statics.login = async function (email, password) {
-  if (!validator.isEmail(email)) {
+  if (!isEmail(email)) {
     throw new Error("Invalid email format");
   }
   const user = await this.findOne({ email });

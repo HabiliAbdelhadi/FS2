@@ -14,9 +14,14 @@ exports.listCourse = async (req, res) => {
 
 exports.getCourse = async (req, res) => {
   try {
+    const featured = req.query.featured || false;
     const data = await Course.findById(req.params.id);
     if (!data) return res.status(404).json({ message: "Course introuvable" });
     res.json(data);
+    console.log(req.query.featured);
+    if (featured) {
+      data = data.where("featured", featured);
+    }
   } catch (error) {
     res.status(500).json(error);
   }
@@ -26,7 +31,6 @@ exports.deleteCourse = async (req, res) => {
     const data = await Course.findByIdAndDelete({ _id: req.params.id });
     if (!data) return res.status(404).json({ message: "Course introuvable" });
     fs.unlinkSync(data.thumbnail);
-    await Chapter.deleteMany({ course: data._id });
     res.json(data);
   } catch (error) {
     res.status(500).json(error);
@@ -34,13 +38,12 @@ exports.deleteCourse = async (req, res) => {
 };
 exports.createCourse = async (req, res) => {
   try {
-    const { title, description, type } = req.body;
+    const { title, description } = req.body;
     const thumbnail = req.file.path; // Access the thumbnail file path
 
     const newCourse = new Course({
       title,
       description,
-      type,
       thumbnail,
     });
     await newCourse.save();

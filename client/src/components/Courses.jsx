@@ -63,7 +63,7 @@ const Courses = () => {
     <div>
       {/* Welcome message */}
       <Typography variant="h4" gutterBottom>
-        Welcome, User! Choose from a wide variety of courses.
+        Welcome! Choose from a wide variety of courses.
       </Typography>
 
       {/* Carousel for handpicked courses */}

@@ -7,18 +7,13 @@ const courseSchema = mongoose.Schema({
   },
   description: {
     type: String,
-    required: true,
-  },
-
-  type: {
-    type: String,
-    enum: ["default", "corp"],
-    required: [true, "Please enter a course type: default or corp"],
+    required: [true, "please provide a description for this course"],
   },
   thumbnail: {
     type: String,
     required: true,
   },
+  featured: { type: Boolean, default: false },
 });
 
 const Course = mongoose.model("Course", courseSchema);

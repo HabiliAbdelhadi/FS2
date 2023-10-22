@@ -1,5 +1,6 @@
 const Course = require("../models/Course");
 const Chapter = require("../models/Chapter");
+const { json } = require("stream/consumers");
 
 exports.listChapters = async (req, res) => {
   try {
@@ -48,7 +49,43 @@ exports.deleteChapter = async (req, res) => {
     //the files are deleted in the pre remove function
     res.json(data);
   } catch (error) {
-    console.log(error);
+    res.status(500).json(error);
+  }
+};
+//edit only the title or the title or desc
+exports.editChapter = async (req, res) => {
+  try {
+    const data = await Chapter.findById(req.params.id);
+    console.log(req.body);
+    if (req.body.title) data.title = req.body.title;
+    if (req.body.description) data.description = req.body.description;
+    data.save();
+    res.json(data);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+};
+
+exports.addFiles = async (req, res) => {
+  try {
+    const data = await Chapter.findById(req.params.id);
+    const newFiles = req.files.map((file) => file.path);
+    data.files.push(...newFiles);
+    data.save();
+    res.json(data);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+};
+
+exports.removeFiles = async (req, res) => {
+  try {
+    const data = await Chapter.findById(req.params.id);
+    // const newFiles = req.files.map((file) => file.path);
+    // data.files.push(...newFiles);
+    data.save();
+    res.json(data);
+  } catch (error) {
     res.status(500).json(error);
   }
 };

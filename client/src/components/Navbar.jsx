@@ -71,7 +71,7 @@ const Navbar = () => {
   };
 
   return (
-    <AppBar position="static" sx={{ background: "#212121" }}>
+    <AppBar position="sticky" sx={{ background: "#c5e1a5", color: "black" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
@@ -90,7 +90,7 @@ const Navbar = () => {
               textDecoration: "none",
             }}
           >
-            NAME
+            BE-OS
           </Typography>
 
           {/**********************************************links menu for small screen *************************************************/}
@@ -168,13 +168,13 @@ const Navbar = () => {
                 textDecoration: "none",
               }}
             >
-              NAME
+              BE-OS
             </Typography>
           </Box>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             <Button
               onClick={handleCloseNavMenu}
-              sx={{ my: 2, color: "white", display: "block" }}
+              sx={{ my: 2, color: "black", display: "block" }}
               component={Link}
               to="/courses"
             >
@@ -182,7 +182,7 @@ const Navbar = () => {
             </Button>
             <Button
               onClick={handleCloseNavMenu}
-              sx={{ my: 2, color: "white", display: "block" }}
+              sx={{ my: 2, color: "black", display: "block" }}
               component={Link}
               to="/contact"
             >
@@ -190,7 +190,7 @@ const Navbar = () => {
             </Button>
             <Button
               onClick={handleCloseNavMenu}
-              sx={{ my: 2, color: "white", display: "block" }}
+              sx={{ my: 2, color: "black", display: "block" }}
               component={Link}
               to="/about"
             >
@@ -339,10 +339,10 @@ const Navbar = () => {
               >
                 <Button
                   onClick={handleCloseNavMenu}
-                  sx={{ my: 2, mr: 2, display: "block" }}
+                  sx={{ my: 2, mr: 2, display: "block", color: "black" }}
                   component={Link}
-                  color="info"
-                  variant="contained"
+                  variant="outlined"
+                  color="mgreen"
                   to="/login"
                 >
                   Log In
