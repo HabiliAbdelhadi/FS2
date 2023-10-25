@@ -1,5 +1,5 @@
-import React from "react";
 import { Button, Container, Grid, Typography } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
@@ -57,15 +57,19 @@ const HeroSection = () => {
             variant="outlined"
             color="mgreen"
             sx={{ mr: "4px", borderRadius: "12px", borderWidth: "1px" }}
+            component={Link}
+            to="/courses"
           >
-            All courses
+            <Typography textAlign="center">All courses</Typography>
           </Button>
           <Button
             variant="contained"
             color="mgreen"
             sx={{ borderRadius: "12px" }}
+            component={Link}
+            to="/booking"
           >
-            Enroll now
+            <Typography textAlign="center">Book a session</Typography>
           </Button>
         </Container>
       </Grid>

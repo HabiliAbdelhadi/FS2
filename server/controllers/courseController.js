@@ -5,23 +5,31 @@ const Chapter = require("../models/Chapter");
 
 exports.listCourse = async (req, res) => {
   try {
-    const data = await Course.find();
+    const { featured, search } = req.query;
+    let query = {};
+    if (featured) {
+      query.featured = featured;
+    }
+
+    if (search) {
+      query.$or = [
+        { title: { $regex: new RegExp(search, "i") } },
+        { description: { $regex: new RegExp(search, "i") } },
+      ];
+    }
+    const data = await Course.find(query);
     res.json(data);
   } catch (error) {
+    console.error(error);
     res.status(500).json(error);
   }
 };
 
 exports.getCourse = async (req, res) => {
   try {
-    const featured = req.query.featured || false;
     const data = await Course.findById(req.params.id);
     if (!data) return res.status(404).json({ message: "Course introuvable" });
     res.json(data);
-    console.log(req.query.featured);
-    if (featured) {
-      data = data.where("featured", featured);
-    }
   } catch (error) {
     res.status(500).json(error);
   }
@@ -38,13 +46,14 @@ exports.deleteCourse = async (req, res) => {
 };
 exports.createCourse = async (req, res) => {
   try {
-    const { title, description } = req.body;
+    const { title, description, featured } = req.body;
     const thumbnail = req.file.path; // Access the thumbnail file path
 
     const newCourse = new Course({
       title,
       description,
       thumbnail,
+      featured,
     });
     await newCourse.save();
 
@@ -74,7 +83,7 @@ exports.editCourse = async (req, res) => {
     }
     if (req.body.title) course.title = req.body.title;
     if (req.body.description) course.description = req.body.description;
-    if (req.body.type) course.type = req.body.type;
+    if (req.body.featured) course.featured = req.body.featured;
 
     await course.save();
 

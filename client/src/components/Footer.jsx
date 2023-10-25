@@ -12,11 +12,20 @@ function Footer() {
       <Container maxWidth="lg">
         <Grid container spacing={2} justify="center">
           <Grid item xs={12} sm={6} md={4} textAlign="center">
-            <Typography variant="h5" gutterBottom color="yellowgreen">
+            <Typography
+              variant="h5"
+              gutterBottom
+              color="yellowgreen"
+              as={Link}
+              to="/"
+              sx={{ textDecoration: "none" }}
+            >
               BE-OS
             </Typography>
             <Typography variant="body2" color="white">
-              learn stuff chat gpt
+              Start a personalized journey to success. Dive into tailored
+              guidance that brings your goals to life. Unleash your potential
+              with us!
             </Typography>
           </Grid>
           <Grid
@@ -28,7 +37,7 @@ function Footer() {
             textAlign="center"
           >
             <Typography variant="h6" gutterBottom color="yellowgreen">
-              Liens Rapides
+              Links
             </Typography>
             <Typography
               as={Link}
@@ -55,7 +64,13 @@ function Footer() {
             </Typography>
           </Grid>
           <Grid item xs={12} sm={6} md={4} textAlign="center">
-            <Typography variant="h6" color="yellowgreen">
+            <Typography
+              variant="h6"
+              color="yellowgreen"
+              as={Link}
+              to="/contact"
+              sx={{ textDecoration: "none" }}
+            >
               Get in touch
             </Typography>
             <Typography color="white">Email: info@example.com</Typography>

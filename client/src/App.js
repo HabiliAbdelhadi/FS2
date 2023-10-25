@@ -16,12 +16,11 @@ import Activate from "./components/Activate";
 import PwdVerify from "./components/PwdVerify";
 import ChangePwd from "./components/ChangePwd";
 import Navbar from "./components/Navbar";
-import Contact from "./components/Contact";
 import { CssBaseline } from "@mui/material";
 import "./app.css";
 import AboutMe from "./components/AboutMe";
-// import Courses from "./components/Courses";
 import Courses from "./pages/Courses";
+import Contact from "./pages/Contact";
 import Footer from "./components/Footer";
 import { createTheme, ThemeProvider } from "@mui/material";
 
