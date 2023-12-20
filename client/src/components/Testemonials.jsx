@@ -7,7 +7,6 @@ import {
   Container,
   Box,
 } from "@mui/material";
-import { Component } from "react";
 import Carousel from "react-material-ui-carousel";
 
 const courseReviews = [
@@ -45,7 +44,7 @@ const Testemonials = () => {
     <Paper
       sx={{
         borderRadius: "0 12px 12px 0 ",
-        background: "#66bb6a",
+        background: "#acf460",
         width: { xs: "97%", lg: "105%" },
       }}
     >

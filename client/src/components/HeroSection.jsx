@@ -14,7 +14,11 @@ const HeroSection = () => {
             justifyContent: "center",
           }}
         >
-          <img src="Billel.png" alt="billel_pic" style={{ width: "90%" }}></img>
+          <img
+            src="BillelChelby.png"
+            alt="billel_pic"
+            style={{ width: "90%" }}
+          ></img>
         </Container>
       </Grid>
       <Grid
@@ -29,14 +33,15 @@ const HeroSection = () => {
         }}
       >
         <Typography
-          typography={{ xs: "h5", sm: "h2" }}
+          typography={{ xs: "h6", sm: "h3" }}
           textAlign={{ xs: "center", md: "left" }}
           gutterBottom
         >
-          Guiding You to Unlock Your Potential
+          Guiding You to Unlock Your{" "}
+          <span style={{ color: "#74d143" }}>Full</span> Potential
         </Typography>
         <Typography
-          typography={{ xs: "body1", sm: "h5" }}
+          typography={{ xs: "body2", sm: "h6" }}
           textAlign={{ xs: "center", md: "left" }}
           gutterBottom
         >
@@ -55,8 +60,12 @@ const HeroSection = () => {
         >
           <Button
             variant="outlined"
-            color="mgreen"
-            sx={{ mr: "4px", borderRadius: "12px", borderWidth: "1px" }}
+            color="dggreen"
+            sx={{
+              mr: "4px",
+              borderRadius: "10px",
+              borderWidth: "1px",
+            }}
             component={Link}
             to="/courses"
           >
@@ -64,8 +73,8 @@ const HeroSection = () => {
           </Button>
           <Button
             variant="contained"
-            color="mgreen"
-            sx={{ borderRadius: "12px" }}
+            color="sgreen"
+            sx={{ borderRadius: "10px", color: "#1f3d2b" }}
             component={Link}
             to="/booking"
           >

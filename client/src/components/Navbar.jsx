@@ -25,6 +25,7 @@ import useAuth from "../hooks/useAuth";
 import AuthContext from "../context/AuthProvider";
 import axios from "../api/axios";
 import Chip from "@mui/material/Chip";
+import { Margin } from "@mui/icons-material";
 
 const Navbar = () => {
   const { setAuth } = useContext(AuthContext); //for the logout
@@ -71,43 +72,122 @@ const Navbar = () => {
   };
 
   return (
-    <AppBar position="sticky" sx={{ background: "#c5e1a5", color: "black" }}>
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
-          <Typography
-            variant="h6"
-            noWrap
-            component={Link}
-            to="/"
+    <AppBar position="sticky" sx={{ background: "#1f3d2b", color: "black" }}>
+      <Toolbar disableGutters>
+        <Box
+          sx={{ display: { xs: "none", md: "flex" } }}
+          component={Link}
+          to="/"
+        >
+          <img src="beosNav.png" alt="BeosLogo" height="90vw"></img>
+        </Box>
+        {/**********************************************links menu for small screen *************************************************/}
+        <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+          <IconButton
+            size="large"
+            aria-label="account of current user"
+            aria-controls="menu-appbar"
+            aria-haspopup="true"
+            onClick={handleOpenNavMenu}
+            color="inherit"
+          >
+            <MenuIcon />
+          </IconButton>
+          <Menu
+            id="menu-appbar"
+            anchorEl={anchorElNav}
+            anchorOrigin={{
+              vertical: "bottom",
+              horizontal: "left",
+            }}
+            keepMounted
+            transformOrigin={{
+              vertical: "top",
+              horizontal: "left",
+            }}
+            open={Boolean(anchorElNav)}
+            onClose={handleCloseNavMenu}
             sx={{
-              mr: 2,
-              display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
+              display: { xs: "block", md: "none" },
             }}
           >
-            BE-OS
-          </Typography>
-
-          {/**********************************************links menu for small screen *************************************************/}
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
+            <MenuItem
+              component={Link}
+              to="/courses"
+              onClick={handleCloseNavMenu}
             >
-              <MenuIcon />
-            </IconButton>
+              Courses
+            </MenuItem>
+            <MenuItem
+              component={Link}
+              to="/contact"
+              onClick={handleCloseNavMenu}
+            >
+              Contact
+            </MenuItem>
+            <MenuItem component={Link} to="/about" onClick={handleCloseNavMenu}>
+              About me
+            </MenuItem>
+          </Menu>
+        </Box>
+
+        {/**********************************************links menu for big screen *************************************************/}
+        <Box
+          sx={{ display: { xs: "flex", md: "none" } }}
+          component={Link}
+          to="/"
+        >
+          <img src="beosNav.png" alt="BeosLogo" height="50vw"></img>
+        </Box>
+        <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+          <Button
+            onClick={handleCloseNavMenu}
+            color="mgreen"
+            sx={{ my: 2, display: "block" }}
+            component={Link}
+            to="/courses"
+          >
+            Courses
+          </Button>
+          <Button
+            onClick={handleCloseNavMenu}
+            sx={{ my: 2, color: "white", display: "block" }}
+            component={Link}
+            to="/contact"
+          >
+            Contact
+          </Button>
+          <Button
+            onClick={handleCloseNavMenu}
+            sx={{ my: 2, color: "white", display: "block" }}
+            component={Link}
+            to="/about"
+          >
+            About me
+          </Button>
+        </Box>
+        {/********************************************** 3fayes left side *************************************************/}
+        {auth ? (
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: "flex",
+              justifyContent: "flex-end",
+            }}
+          >
+            <Chip
+              label={auth.user.username}
+              variant="filled"
+              icon={<AccountCircleIcon />}
+              color="primary"
+              onClick={handleOpenUserMenu}
+              sx={{ p: 0 }}
+            />
+
             <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
+              anchorEl={anchorElUser}
+              open={Boolean(anchorElUser)}
+              onClose={handleCloseUserMenu}
               anchorOrigin={{
                 vertical: "bottom",
                 horizontal: "left",
@@ -117,108 +197,70 @@ const Navbar = () => {
                 vertical: "top",
                 horizontal: "left",
               }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: "block", md: "none" },
-              }}
             >
               <MenuItem
+                onClick={handleCloseUserMenu}
                 component={Link}
-                to="/courses"
-                onClick={handleCloseNavMenu}
+                to="/dashboard"
               >
-                Courses
+                <ListItemIcon>
+                  <SpeedIcon fontSize="small" />
+                </ListItemIcon>
+                Dashboard
               </MenuItem>
               <MenuItem
+                onClick={handleCloseUserMenu}
                 component={Link}
-                to="/contact"
-                onClick={handleCloseNavMenu}
+                to="/change-pwd"
               >
-                Contact
+                <ListItemIcon>
+                  <SettingsIcon fontSize="small" />
+                </ListItemIcon>
+                Change Password
               </MenuItem>
-              <MenuItem
-                component={Link}
-                to="/about"
-                onClick={handleCloseNavMenu}
-              >
-                About me
+              {!auth?.user?.verified ? (
+                <MenuItem
+                  onClick={handleCloseUserMenu}
+                  component={Link}
+                  to="/activate"
+                >
+                  <ListItemIcon>
+                    <SettingsIcon fontSize="small" />
+                  </ListItemIcon>
+                  Activate account
+                </MenuItem>
+              ) : null}
+              <Divider />
+              <MenuItem onClick={logout} variant="warning">
+                <ListItemIcon>
+                  <Logout fontSize="small" />
+                </ListItemIcon>
+                Logout
               </MenuItem>
             </Menu>
           </Box>
-
-          {/**********************************************links menu for big screen *************************************************/}
-          <Box
-            sx={{ display: { xs: "flex", md: "none" }, alignItems: "center" }}
-          >
-            <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
-            <Typography
-              variant="h5"
-              noWrap
-              component={Link}
-              to="/"
-              sx={{
-                mr: 2,
-                display: { xs: "flex", md: "none" },
-                flexGrow: 1,
-                fontFamily: "monospace",
-                fontWeight: 700,
-                letterSpacing: ".3rem",
-                color: "inherit",
-                textDecoration: "none",
-              }}
-            >
-              BE-OS
-            </Typography>
-          </Box>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            <Button
-              onClick={handleCloseNavMenu}
-              sx={{ my: 2, color: "black", display: "block" }}
-              component={Link}
-              to="/courses"
-            >
-              Courses
-            </Button>
-            <Button
-              onClick={handleCloseNavMenu}
-              sx={{ my: 2, color: "black", display: "block" }}
-              component={Link}
-              to="/contact"
-            >
-              Contact
-            </Button>
-            <Button
-              onClick={handleCloseNavMenu}
-              sx={{ my: 2, color: "black", display: "block" }}
-              component={Link}
-              to="/about"
-            >
-              About me
-            </Button>
-          </Box>
-          {/********************************************** 3fayes left side *************************************************/}
-          {auth ? (
+        ) : (
+          <>
             <Box
               sx={{
                 flexGrow: 1,
-                display: "flex",
+                display: { xs: "flex", md: "none" },
                 justifyContent: "flex-end",
               }}
             >
-              <Chip
-                label={auth.user.username}
-                variant="filled"
-                icon={<AccountCircleIcon />}
-                color="primary"
-                onClick={handleOpenUserMenu}
-                sx={{ p: 0 }}
-              />
-
+              <IconButton
+                size="large"
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleOpenNavMenu2}
+                color="inherit"
+              >
+                <MenuIcon />
+              </IconButton>
               <Menu
-                anchorEl={anchorElUser}
-                open={Boolean(anchorElUser)}
-                onClose={handleCloseUserMenu}
+                id="menu-appbar"
+                anchorEl={anchorElNav2}
                 anchorOrigin={{
                   vertical: "bottom",
                   horizontal: "left",
@@ -228,140 +270,72 @@ const Navbar = () => {
                   vertical: "top",
                   horizontal: "left",
                 }}
+                open={Boolean(anchorElNav2)}
+                onClose={handleCloseNavMenu2}
+                sx={{
+                  display: { xs: "block", md: "none" },
+                }}
               >
                 <MenuItem
-                  onClick={handleCloseUserMenu}
                   component={Link}
-                  to="/dashboard"
+                  to="/signup"
+                  onClick={handleCloseNavMenu2}
                 >
                   <ListItemIcon>
-                    <SpeedIcon fontSize="small" />
+                    <PersonAdd fontSize="small" />
                   </ListItemIcon>
-                  Dashboard
+                  Sign Up
                 </MenuItem>
                 <MenuItem
-                  onClick={handleCloseUserMenu}
                   component={Link}
-                  to="/change-pwd"
+                  to="/login"
+                  onClick={handleCloseNavMenu2}
                 >
                   <ListItemIcon>
-                    <SettingsIcon fontSize="small" />
+                    <Login fontSize="small" />
                   </ListItemIcon>
-                  Change Password
-                </MenuItem>
-                {!auth?.user?.verified ? (
-                  <MenuItem
-                    onClick={handleCloseUserMenu}
-                    component={Link}
-                    to="/activate"
-                  >
-                    <ListItemIcon>
-                      <SettingsIcon fontSize="small" />
-                    </ListItemIcon>
-                    Activate account
-                  </MenuItem>
-                ) : null}
-                <Divider />
-                <MenuItem onClick={logout} variant="warning">
-                  <ListItemIcon>
-                    <Logout fontSize="small" />
-                  </ListItemIcon>
-                  Logout
+                  Login
                 </MenuItem>
               </Menu>
             </Box>
-          ) : (
-            <>
-              <Box
-                sx={{
-                  flexGrow: 1,
-                  display: { xs: "flex", md: "none" },
-                  justifyContent: "flex-end",
-                }}
+            {/**********************************************links menu for big screen *************************************************/}
+            <Box
+              sx={{
+                flexGrow: 1,
+                display: { xs: "none", md: "flex" },
+                justifyContent: "flex-end",
+                px: "20px",
+              }}
+            >
+              <Button
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, mr: 2, display: "block", borderRadius: "10px" }}
+                component={Link}
+                variant="outlined"
+                color="sgreen"
+                to="/login"
               >
-                <IconButton
-                  size="large"
-                  aria-label="account of current user"
-                  aria-controls="menu-appbar"
-                  aria-haspopup="true"
-                  onClick={handleOpenNavMenu2}
-                  color="inherit"
-                >
-                  <MenuIcon />
-                </IconButton>
-                <Menu
-                  id="menu-appbar"
-                  anchorEl={anchorElNav2}
-                  anchorOrigin={{
-                    vertical: "bottom",
-                    horizontal: "left",
-                  }}
-                  keepMounted
-                  transformOrigin={{
-                    vertical: "top",
-                    horizontal: "left",
-                  }}
-                  open={Boolean(anchorElNav2)}
-                  onClose={handleCloseNavMenu2}
-                  sx={{
-                    display: { xs: "block", md: "none" },
-                  }}
-                >
-                  <MenuItem
-                    component={Link}
-                    to="/signup"
-                    onClick={handleCloseNavMenu2}
-                  >
-                    <ListItemIcon>
-                      <PersonAdd fontSize="small" />
-                    </ListItemIcon>
-                    Sign Up
-                  </MenuItem>
-                  <MenuItem
-                    component={Link}
-                    to="/login"
-                    onClick={handleCloseNavMenu2}
-                  >
-                    <ListItemIcon>
-                      <Login fontSize="small" />
-                    </ListItemIcon>
-                    Login
-                  </MenuItem>
-                </Menu>
-              </Box>
-              {/**********************************************links menu for big screen *************************************************/}
-              <Box
+                Log In
+              </Button>
+              <Button
+                onClick={handleCloseNavMenu}
                 sx={{
-                  flexGrow: 1,
-                  display: { xs: "none", md: "flex" },
-                  justifyContent: "flex-end",
+                  my: 2,
+                  display: "block",
+                  borderRadius: "10px",
+                  color: "#1f3d2b",
                 }}
+                component={Link}
+                to="/signup"
+                variant="contained"
+                color="sgreen"
               >
-                <Button
-                  onClick={handleCloseNavMenu}
-                  sx={{ my: 2, mr: 2, display: "block", color: "black" }}
-                  component={Link}
-                  variant="outlined"
-                  color="mgreen"
-                  to="/login"
-                >
-                  Log In
-                </Button>
-                <Button
-                  onClick={handleCloseNavMenu}
-                  sx={{ my: 2, display: "block" }}
-                  component={Link}
-                  to="/signup"
-                  variant="contained"
-                  color="success"
-                >
-                  Sign Up
-                </Button>
-              </Box>
-            </>
-          )}
-        </Toolbar>
-      </Container>
+                Sign Up
+              </Button>
+            </Box>
+          </>
+        )}
+      </Toolbar>
     </AppBar>
   );
 };

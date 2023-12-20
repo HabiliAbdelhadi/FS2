@@ -5,7 +5,7 @@ const WelcomeSection = () => {
     <Paper
       sx={{
         borderRadius: "0 12px 12px 0 ",
-        background: "#66bb6a",
+        background: "#acf460",
         width: { xs: "97%", lg: "105%" },
       }}
     >

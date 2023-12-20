@@ -32,7 +32,19 @@ function App() {
     },
     palette: {
       mgreen: {
-        main: "#66bb6a",
+        main: "#acf460",
+      },
+      sgreen: {
+        main: "#74d143",
+      },
+      dgreen: {
+        main: "#00701d",
+      },
+      dggreen: {
+        main: "#1f3d2b",
+      },
+      ddgreen: {
+        main: "#082315",
       },
     },
   });

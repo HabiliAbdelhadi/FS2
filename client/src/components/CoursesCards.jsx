@@ -46,7 +46,7 @@ const ProductCard = ({ data, sm }) => {
             sx={{
               ":hover": {
                 boxShadow: 16,
-                borderColor: "#66bb6a",
+                borderColor: "#acf460",
                 borderWidth: "3px",
               },
               borderColor: "#58749c",

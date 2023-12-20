@@ -12,7 +12,7 @@ const VideoSection = () => {
     <Paper
       sx={{
         borderRadius: "12px 0 0 12px",
-        background: "#66bb6a",
+        background: "#acf460",
         width: { xs: "97%", lg: "105%" },
         marginLeft: { xs: "3%", lg: "5%" },
       }}
