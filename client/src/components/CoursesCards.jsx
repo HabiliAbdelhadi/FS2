@@ -11,7 +11,7 @@ import {
 
 import { Link } from "react-router-dom";
 
-const ProductCard = ({ data, sm }) => {
+const ProductCard = ({ data }) => {
   if (!data) {
     return (
       <div
@@ -36,11 +36,11 @@ const ProductCard = ({ data, sm }) => {
       sx={{
         mt: "1px",
         mb: "10px",
-        justifyContent: "center",
+        justifyContent: "left",
       }}
     >
       {data.map((item) => (
-        <Grid item key={item._id} xs={12} sm={sm}>
+        <Grid item key={item._id} xs={12} sm={6} md={4}>
           <Card
             variant="outlined"
             sx={{

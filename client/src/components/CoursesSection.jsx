@@ -50,7 +50,7 @@ const CoursesSection = () => {
         </Typography>
       </Grid>
       <Grid item xs={12}>
-        <CoursesCards data={data} sm={4} />
+        <CoursesCards data={data} />
       </Grid>
       <Grid
         item

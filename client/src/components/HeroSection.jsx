@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const HeroSection = () => {
   return (
     <Grid container spacing={1}>
-      <Grid item xs={12} md={6}>
+      <Grid item xs={12} sm={6}>
         <Container
           maxWidth={false}
           sx={{
@@ -24,7 +24,7 @@ const HeroSection = () => {
       <Grid
         item
         xs={12}
-        md={6}
+        sm={6}
         sx={{
           display: "flex",
           flexDirection: "column",
@@ -33,21 +33,29 @@ const HeroSection = () => {
         }}
       >
         <Typography
-          typography={{ xs: "h6", sm: "h3" }}
+          typography={{ xs: "h6", md: "h4" }}
           textAlign={{ xs: "center", md: "left" }}
-          gutterBottom
         >
-          Guiding You to Unlock Your{" "}
-          <span style={{ color: "#74d143" }}>Full</span> Potential
+          My name is Billel Chelbi.
         </Typography>
         <Typography
-          typography={{ xs: "body2", sm: "h6" }}
+          typography={{ xs: "h6", md: "h4" }}
           textAlign={{ xs: "center", md: "left" }}
           gutterBottom
         >
-          Studying is a lifelong journey. And the beautiful thing about learning
-          is that nobody can take it away from you. Stop searching, enjoy the
-          process.
+          I’m a <span style={{ color: "#74d143" }}>certified</span> English
+          teacher.
+        </Typography>
+        <Typography
+          typography={{ xs: "body2", md: "h6" }}
+          textAlign="justify"
+          gutterBottom
+        >
+          I’m here for one reason – to help you make an impact on the world by
+          providing valuable content, remarkable skills, comprehensive training,
+          and increased motivation. I’ll assist you in overcoming the barriers
+          that have been holding you back. Discover the encouragement and
+          support you need!
         </Typography>
         <Container
           sx={{

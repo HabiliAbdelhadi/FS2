@@ -6,7 +6,7 @@ const WelcomeSection = () => {
       sx={{
         borderRadius: "0 12px 12px 0 ",
         background: "#1f3d2b",
-        width: { xs: "97%", lg: "105%" },
+        width: { xs: "90%", lg: "100%" },
       }}
     >
       <Grid container spacing={0}>
@@ -23,7 +23,7 @@ const WelcomeSection = () => {
           }}
         >
           <Typography
-            typography={{ xs: "body1", sm: "h6" }}
+            typography={{ xs: "h6", md: "h4" }}
             mt={3}
             // ml={24}
             gutterBottom
@@ -34,31 +34,24 @@ const WelcomeSection = () => {
           <Typography
             // ml={24}
             color="white"
-            typography={{ xs: "h5", sm: "h4" }}
-          >
-            My name is Billel Chelbi.
-          </Typography>
-          <Typography
-            // mr={24}
-            color="white"
-            typography={{ xs: "h5", sm: "h4" }}
+            typography={{ xs: "h6", md: "h4" }}
             gutterBottom
           >
-            I’m a <span style={{ color: "#74d143" }}>certified</span> English
-            teacher.
+            Guiding You to Unlock Your{" "}
+            <span style={{ color: "#74d143" }}>Full</span> Potential
           </Typography>
 
           <Typography
             //ml={24}
             color="white"
             mr={2}
-            typography="body1"
+            gutterBottom
+            textAlign="justify"
+            typography={{ xs: "body2", md: "h6" }}
           >
-            I’m here for one reason – to help you make an impact on the world by
-            providing valuable content, remarkable skills, comprehensive
-            training, and increased motivation. I’ll assist you in overcoming
-            the barriers that have been holding you back. Discover the
-            encouragement and support you need!
+            Studying is a lifelong journey. And the beautiful thing about
+            learning is that nobody can take it away from you. Stop searching,
+            enjoy the process.
           </Typography>
         </Grid>
         <Grid
@@ -68,8 +61,8 @@ const WelcomeSection = () => {
           sx={{
             display: "flex",
             flexDirection: "row",
-            justifyContent: { xs: "center", sm: "right" },
-            alignItems: { xs: "center", sm: "right" },
+            justifyContent: "right",
+            alignItems: "right",
           }}
         >
           <img

@@ -15,7 +15,7 @@ function Footer() {
             <Typography
               variant="h5"
               gutterBottom
-              color="yellowgreen"
+              color="#74d143"
               as={Link}
               to="/"
               sx={{ textDecoration: "none" }}
@@ -36,7 +36,7 @@ function Footer() {
             sx={{ display: { xs: "none", md: "block" } }}
             textAlign="center"
           >
-            <Typography variant="h6" gutterBottom color="yellowgreen">
+            <Typography variant="h6" gutterBottom color="#74d143">
               Links
             </Typography>
             <Typography
@@ -66,7 +66,7 @@ function Footer() {
           <Grid item xs={12} sm={6} md={4} textAlign="center">
             <Typography
               variant="h6"
-              color="yellowgreen"
+              color="#74d143"
               as={Link}
               to="/contact"
               sx={{ textDecoration: "none" }}

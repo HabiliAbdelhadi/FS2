@@ -21,11 +21,6 @@ const courseReviews = [
       "Bilel is a qualified and dedicated teacher. My learning experience with him is pure pleasure! He encourages open discussion and recommends helpful vocabulary. He is patient, kind and charismatic 😇",
   },
   {
-    name: "Martyna",
-    review:
-      "I can feel my confidence improving with each lesson with Bilel 💥🚀 He's an outstanding teacher, extremely intelligent (his broad knowledge never ceases to amaze me 👀) and always with encouraging smile. Some of our lessons are profiled for business and job purpose and some are just us discussing various topics from social issues to very abstract ones. He's always prepared with a set of imaginative and baffling questions to ask that stimulate your brain and make you think 🤔 If you seek a tutor who is qualified, engaging and fun, I can guarantee Bilel is the one you're looking for! 💥",
-  },
-  {
     name: "Gabrielle",
     review:
       "Bilel is a very nice tutor! He help me a lot to be more confident with my English conversation. He is patient, charismatic and invested! Its easy to feel confortable with him. He take the time to make sure your understanding is good. Its always interesting to talk with him and i can improve my English without pressure ! 😊",
@@ -35,8 +30,6 @@ const courseReviews = [
     review:
       "Thank you Bilel for unforgettable lessons! I’m really started to communicate English with pleasure.Bilel helped me to interpret a lot of words in different ways and understand native speakers with ease.Also in our lessons we united grammar rules and speaking practice.Tutor was very charismatic and easygoing in our classes! 💚",
   },
-
-  // Add more reviews here...
 ];
 
 const Testemonials = () => {
@@ -44,8 +37,8 @@ const Testemonials = () => {
     <Paper
       sx={{
         borderRadius: "0 12px 12px 0 ",
-        background: "#acf460",
-        width: { xs: "97%", lg: "105%" },
+        background: "#1f3d2b",
+        width: { xs: "90%", lg: "100%" },
       }}
     >
       <Grid container spacing={0}>
@@ -57,7 +50,6 @@ const Testemonials = () => {
           sx={{
             display: "flex",
             flexDirection: "column",
-
             justifyContent: "center",
           }}
         >
@@ -74,13 +66,14 @@ const Testemonials = () => {
               typography={{ xs: "body1", sm: "h6" }}
               mt={3}
               // ml={24}
-              sx={{ color: "#505e11" }}
+              sx={{ color: "#74d143" }}
             >
               TESTIMONIALS
             </Typography>
             <img src="chalta.png" alt="chalta" width="20%"></img>
           </Container>
           <Typography
+            sx={{ color: "white" }}
             // ml={24}
             typography={{ xs: "h5", sm: "h4" }}
             gutterBottom
@@ -92,6 +85,8 @@ const Testemonials = () => {
             //ml={24}
             mr={2}
             typography="body1"
+            sx={{ color: "white" }}
+            gutterBottom
           >
             Possibilities suddenly appear with the support and encouragement of
             someone you trust. I see the best in you, and as your teacher, I

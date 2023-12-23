@@ -118,7 +118,7 @@ const Courses = () => {
           <Divider sx={{ my: 2 }} />
         </Grid>
         <Grid item xs={12}>
-          <CoursesCards data={data} sm={3} />
+          <CoursesCards data={data} sm={6} />
         </Grid>
       </Grid>
     </Container>

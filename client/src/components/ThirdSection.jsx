@@ -3,11 +3,11 @@ import React from "react";
 
 const ThirdSection = () => {
   return (
-    <Grid container spacing={0}>
+    <Grid container spacing={{ sm: 0, md: 1, lg: 2 }}>
       <Grid
         item
-        xs={12}
         sm={12}
+        md={12}
         sx={{
           display: "flex",
           flexDirection: "column",
@@ -40,11 +40,11 @@ const ThirdSection = () => {
           alignItems: "center",
         }}
       >
-        <img src="tableau.png"></img>
+        <img style={{ height: "250px" }} src="tableau2.png"></img>
         <Typography typography={{ xs: "h5", sm: "h4" }} textAlign="center">
           Personalized Approach
         </Typography>
-        <Typography variant="body1" textAlign="center" mx={1} gutterBottom>
+        <Typography variant="body1" textAlign="justify" mx={1} gutterBottom>
           You’ll receive the benefit of having professional advice, exclusive
           training, and personalized feedback, focussing on you entirely to
           reach your goals.
@@ -61,11 +61,11 @@ const ThirdSection = () => {
           alignItems: "center",
         }}
       >
-        <img src="book.png"></img>
+        <img style={{ height: "250px" }} src="book2.png"></img>
         <Typography typography={{ xs: "h5", sm: "h4" }} textAlign="center">
           Certified Instructor
         </Typography>
-        <Typography variant="body1" textAlign="center" mx={1} gutterBottom>
+        <Typography variant="body1" textAlign="justify" mx={1} gutterBottom>
           As a qualified teacher, I continually work on my professional
           development to build a repertoire of skills that will prepare you for
           the real world.
@@ -82,11 +82,11 @@ const ThirdSection = () => {
           alignItems: "center",
         }}
       >
-        <img src="phone.png"></img>
+        <img style={{ height: "250px" }} src="phone2.png"></img>
         <Typography typography={{ xs: "h5", sm: "h4" }} textAlign="center">
           Multiple Platforms
         </Typography>
-        <Typography variant="body1" textAlign="center" mx={1} gutterBottom>
+        <Typography variant="body1" textAlign="justify" mx={1} gutterBottom>
           Instructing takes place via the platform that is most comfortable for
           you, such as Skype, Zoom, etc. We’ll also agree on the time that suits
           you best.

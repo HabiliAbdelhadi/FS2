@@ -12,7 +12,7 @@ const VideoSection = () => {
     <Paper
       sx={{
         borderRadius: "12px 0 0 12px",
-        background: "#acf460",
+        background: "#1f3d2b",
         width: { xs: "97%", lg: "105%" },
         marginLeft: { xs: "3%", lg: "5%" },
       }}
@@ -35,8 +35,10 @@ const VideoSection = () => {
             mt={1}
             typography={{ xs: "h5", sm: "h4" }}
             gutterBottom
+            color="white"
           >
-            Check out a short presentation
+            Check out a short{" "}
+            <span style={{ color: "#74d143" }}>video presentation</span>
           </Typography>
 
           <Typography
@@ -44,6 +46,8 @@ const VideoSection = () => {
             mr={2}
             typography="body1"
             gutterBottom
+            color="white"
+            textAlign="justify"
           >
             I am sure that we all have far more potential than we believe or
             use, and I enjoy the process of helping my students bring that
@@ -77,7 +81,9 @@ const VideoSection = () => {
               component="video"
               src="pexels-camila-flores-16883440 (1080p).mp4"
               controls
-              sx={{ borderRadius: "12px" }}
+              sx={{
+                borderRadius: "12px",
+              }}
             />
           </Container>
         </Grid>
