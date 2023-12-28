@@ -4,7 +4,6 @@ import { Route, Routes } from "react-router-dom";
 import React from "react";
 import Layout from "./components/Layout";
 import Unauthorized from "./components/Unauthorized";
-import LinkPage from "./components/LinkPage";
 import Missing from "./components/Missing";
 import Home from "./pages/Home";
 import Admin from "./components/Admin";
@@ -68,7 +67,6 @@ function App() {
               <Route path="contact" element={<Contact />}></Route>
               <Route path="signup" element={<Register />}></Route>
               <Route path="login" element={<Login />}></Route>
-              <Route path="linkpage" element={<LinkPage />}></Route>
               <Route path="unauthorized" element={<Unauthorized />}></Route>
               <Route path="/" element={<Home />}></Route>
               <Route
