@@ -6,7 +6,9 @@ const WelcomeSection = () => {
       sx={{
         borderRadius: "0 12px 12px 0 ",
         background: "#1f3d2b",
-        width: { xs: "90%", lg: "100%" },
+        width: "90%",
+        
+    
       }}
     >
       <Grid container spacing={0}>
@@ -29,7 +31,7 @@ const WelcomeSection = () => {
             gutterBottom
             sx={{ color: "#74d143" }}
           >
-            WELCOME TO MY PAGE
+            WELCOME TO BEOS
           </Typography>
           <Typography
             // ml={24}

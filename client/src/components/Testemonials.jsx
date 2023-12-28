@@ -38,7 +38,7 @@ const Testemonials = () => {
       sx={{
         borderRadius: "0 12px 12px 0 ",
         background: "#1f3d2b",
-        width: { xs: "90%", lg: "100%" },
+        width:"90%"
       }}
     >
       <Grid container spacing={0}>
@@ -84,7 +84,7 @@ const Testemonials = () => {
           <Typography
             //ml={24}
             mr={2}
-            typography="body1"
+            typography={{ xs: "body2", md: "h6" }}
             sx={{ color: "white" }}
             gutterBottom
           >

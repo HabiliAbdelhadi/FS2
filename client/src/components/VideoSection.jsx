@@ -6,19 +6,25 @@ import {
   CardMedia,
   Box,
 } from "@mui/material";
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import { useState,useRef } from "react";
 
 const VideoSection = () => {
+  const [videoPlaying, setVideoPlaying] = useState(false);
+  const videoRef = useRef(null);
   return (
     <Paper
       sx={{
         borderRadius: "12px 0 0 12px",
         background: "#1f3d2b",
-        width: { xs: "97%", lg: "105%" },
-        marginLeft: { xs: "3%", lg: "5%" },
+        width: "90%",
+        position: 'relative',
+        left: '9%',
+        
       }}
     >
       <Grid container spacing={0}>
-        <Grid item xs={2} sm={1}></Grid>
+        <Grid item xs={2} sm={1} ></Grid>
         <Grid
           item
           xs={10}
@@ -33,7 +39,7 @@ const VideoSection = () => {
           <Typography
             // mr={24}
             mt={1}
-            typography={{ xs: "h5", sm: "h4" }}
+            typography={{ xs: "h6", md: "h4" }}
             gutterBottom
             color="white"
           >
@@ -44,7 +50,7 @@ const VideoSection = () => {
           <Typography
             //ml={24}
             mr={2}
-            typography="body1"
+            typography={{ xs: "body2", md: "h6" }}
             gutterBottom
             color="white"
             textAlign="justify"
@@ -76,15 +82,47 @@ const VideoSection = () => {
             alignItems: "center",
           }}
         >
-          <Container>
-            <CardMedia
-              component="video"
-              src="pexels-camila-flores-16883440 (1080p).mp4"
-              controls
-              sx={{
-                borderRadius: "12px",
-              }}
-            />
+          <Container >
+
+          {videoPlaying ? (
+        <CardMedia
+        sx={{borderRadius:"12px"}}
+          component="video"
+          controls
+          autoPlay
+          src="pres.mp4"
+          title="Video Title"
+          ref={videoRef}
+          
+          onPlaying={() =>{ setVideoPlaying(true);}}
+          onEnded={() => setVideoPlaying(false)}
+        />
+      ) : (
+        <div style={{ position: 'relative' }}>
+          <CardMedia
+          sx={{borderRadius:"12px"}}
+            component="img"
+            image="VideoThumbnail.png"
+            title="Thumbnail"
+            
+            onClick={() => setVideoPlaying(true)}
+            style={{ cursor: 'pointer' }}
+          />
+          <div
+            style={{
+              position: 'absolute',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              cursor: 'pointer',
+            }}
+            onClick={() => setVideoPlaying(true)}
+          >
+            <PlayArrowIcon style={{ fontSize: 64, color: 'white' }} />
+          </div>
+        </div>
+      )}
+
           </Container>
         </Grid>
       </Grid>
