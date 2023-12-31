@@ -20,6 +20,7 @@ import "./app.css";
 import AboutMe from "./pages/AboutMe";
 import Courses from "./pages/Courses";
 import Contact from "./pages/Contact";
+import Booking from "./pages/Booking";
 import Footer from "./components/Footer";
 import { createTheme, ThemeProvider } from "@mui/material";
 
@@ -63,6 +64,7 @@ function App() {
             <Route path="/" element={<Layout />}>
               {/* Public */}
               <Route path="courses" element={<Courses />}></Route>
+              <Route path="booking" element={<Booking />}></Route>
               <Route path="about" element={<AboutMe />}></Route>
               <Route path="contact" element={<Contact />}></Route>
               <Route path="signup" element={<Register />}></Route>
