@@ -22,7 +22,7 @@ import Courses from "./pages/Courses";
 import Contact from "./pages/Contact";
 import Booking from "./pages/Booking";
 import Footer from "./components/Footer";
-import { createTheme, ThemeProvider } from "@mui/material";
+import { createTheme, ThemeProvider, Box } from "@mui/material";
 
 function App() {
   const theme = createTheme({
@@ -51,7 +51,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <div
+      <Box
         style={{
           display: "flex",
           flexDirection: "column",
@@ -59,7 +59,7 @@ function App() {
         }} //pushed footer stuff
       >
         <Navbar />
-        <div style={{ flexGrow: 1 }}>
+        <Box style={{ flexGrow: 1 }}>
           <Routes>
             <Route path="/" element={<Layout />}>
               {/* Public */}
@@ -104,9 +104,9 @@ function App() {
               <Route path="*" element={<Missing />}></Route>
             </Route>
           </Routes>
-        </div>
+        </Box>
         <Footer />
-      </div>
+      </Box>
     </ThemeProvider>
   );
 }
