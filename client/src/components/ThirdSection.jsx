@@ -3,7 +3,101 @@ import React from "react";
 
 const ThirdSection = () => {
   return (
-    <Grid container spacing={{ sm: 0, md: 1, lg: 2 }}>
+    // <Grid container spacing={{ sm: 0, md: 1, lg: 2 }}>
+    // <Grid
+    //   item
+    //   sm={12}
+    //   md={12}
+    //   sx={{
+    //     display: "flex",
+    //     flexDirection: "column",
+    //     justifyContent: "center",
+    //   }}
+    // >
+    //   <Typography
+    //     typography={{ xs: "body1", sm: "h6" }}
+    //     textAlign="center"
+    //     color="grey"
+    //   >
+    //     EDUCATION FOR EVERYONE
+    //   </Typography>
+    //   <Typography
+    //     typography={{ xs: "h5", sm: "h4" }}
+    //     textAlign="center"
+    //     gutterBottom
+    //   >
+    //     Online Lessons For Remote Learning
+    //   </Typography>
+    // </Grid>
+    //   <Grid
+    //     item
+    //     sm={12}
+    //     md={4}
+    //     sx={{
+    //       display: "flex",
+    //       flexDirection: "column",
+    //       justifyContent: "center",
+    //       alignItems: "center",
+    //     }}
+    //   >
+    // <img
+    //   style={{ height: "250px" }}
+    //   src="tableau2.png"
+    //   alt="white_board"
+    // ></img>
+    // <Typography typography={{ xs: "h5", sm: "h4" }} textAlign="center">
+    //   Personalized Approach
+    // </Typography>
+    // <Typography variant="body1" textAlign="justify" mx={1} gutterBottom>
+    //   You’ll receive the benefit of having professional advice, exclusive
+    //   training, and personalized feedback, focussing on you entirely to
+    //   reach your goals.
+    // </Typography>
+    //   </Grid>
+    //   <Grid
+    //     item
+    //     sm={12}
+    //     md={4}
+    //     sx={{
+    //       display: "flex",
+    //       flexDirection: "column",
+    //       justifyContent: "center",
+    //       alignItems: "center",
+    //     }}
+    //   >
+    //     <img style={{ height: "250px" }} src="book2.png" alt="book"></img>
+    // <Typography typography={{ xs: "h5", sm: "h4" }} textAlign="center">
+    //   Certified Instructor
+    // </Typography>
+    // <Typography variant="body1" textAlign="justify" mx={1} gutterBottom>
+    //   As a qualified teacher, I continually work on my professional
+    //   development to build a repertoire of skills that will prepare you for
+    //   the real world.
+    // </Typography>
+    //   </Grid>
+    //   <Grid
+    //     item
+    //     sm={12}
+    //     md={4}
+    //     sx={{
+    //       display: "flex",
+    //       flexDirection: "column",
+    //       justifyContent: "center",
+    //       alignItems: "center",
+    //     }}
+    //   >
+    //     <img style={{ height: "250px" }} src="phone2.png" alt="phone"></img>
+    // <Typography typography={{ xs: "h5", sm: "h4" }} textAlign="center">
+    //   Multiple Platforms
+    // </Typography>
+    // <Typography variant="body1" textAlign="justify" mx={1} gutterBottom>
+    //   Instructing takes place via the platform that is most comfortable for
+    //   you, such as Skype, Zoom, etc. We’ll also agree on the time that suits
+    //   you best.
+    // </Typography>
+    //   </Grid>
+    // </Grid>
+    <Grid container spacing={0}>
       <Grid
         item
         sm={12}
@@ -35,12 +129,50 @@ const ThirdSection = () => {
         md={4}
         sx={{
           display: "flex",
-          flexDirection: "column",
+          flexDirection: "row",
           justifyContent: "center",
-          alignItems: "center",
         }}
       >
-        <img style={{ height: "250px" }} src="tableau2.png" alt="white_board"></img>
+        <img
+          style={{ width: "70%" }}
+          src="tableau2.png"
+          alt="white_board"
+        ></img>
+      </Grid>
+      <Grid
+        item
+        sm={12}
+        md={4}
+        sx={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "center",
+        }}
+      >
+        <img style={{ width: "70%" }} src="book2.png" alt="white_board"></img>
+      </Grid>
+      <Grid
+        item
+        sm={12}
+        md={4}
+        sx={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "center",
+        }}
+      >
+        <img style={{ width: "70%" }} src="phone2.png" alt="white_board"></img>
+      </Grid>
+      <Grid
+        item
+        sm={12}
+        md={4}
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+        }}
+      >
         <Typography typography={{ xs: "h5", sm: "h4" }} textAlign="center">
           Personalized Approach
         </Typography>
@@ -58,10 +190,8 @@ const ThirdSection = () => {
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
-          alignItems: "center",
         }}
       >
-        <img style={{ height: "250px" }} src="book2.png" alt="book"></img>
         <Typography typography={{ xs: "h5", sm: "h4" }} textAlign="center">
           Certified Instructor
         </Typography>
@@ -79,10 +209,8 @@ const ThirdSection = () => {
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
-          alignItems: "center",
         }}
       >
-        <img style={{ height: "250px" }} src="phone2.png" alt="phone"></img>
         <Typography typography={{ xs: "h5", sm: "h4" }} textAlign="center">
           Multiple Platforms
         </Typography>
