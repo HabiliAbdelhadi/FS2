@@ -4,7 +4,7 @@ export default function CalComp() {
   useEffect(() => {
     (async function () {
       const cal = await getCalApi();
-      cal.ns["individual30"]("ui", {
+      cal.ns["group30"]("ui", {
         styles: { branding: { brandColor: "#74d143" } },
         hideEventTypeDetails: false,
         layout: "month_view",
@@ -13,8 +13,8 @@ export default function CalComp() {
   }, []);
   return (
     <Cal
-      namespace="individual30"
-      calLink="abdelhadi-habili-s2fh6k/individual30"
+      namespace="group30"
+      calLink="abdelhadi-habili-s2fh6k/group30"
       style={{ width: "100%", height: "100%", overflow: "scroll" }}
       config={{ layout: "month_view" }}
     />

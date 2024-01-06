@@ -17,7 +17,7 @@ const handleSubmit = (e) => {
 export default function Booking() {
   return (
     <Container maxWidth="lg">
-      <Grid
+      {/* <Grid
         container
         spacing={2}
         direction="row"
@@ -135,7 +135,8 @@ export default function Booking() {
             </CardContent>
           </Card>
         </Grid>
-      </Grid>
+      </Grid> */}
+      <CalComp />
     </Container>
   );
 }

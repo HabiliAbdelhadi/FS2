@@ -7,8 +7,6 @@ const WelcomeSection = () => {
         borderRadius: "0 12px 12px 0 ",
         background: "#1f3d2b",
         width: "90%",
-        
-    
       }}
     >
       <Grid container spacing={0}>
@@ -39,8 +37,7 @@ const WelcomeSection = () => {
             typography={{ xs: "h6", md: "h4" }}
             gutterBottom
           >
-            Guiding You to Unlock Your{" "}
-            <span style={{ color: "#74d143" }}>Full</span> Potential
+            Streamline Communication With International Clients & Coworkers
           </Typography>
 
           <Typography
@@ -51,9 +48,21 @@ const WelcomeSection = () => {
             textAlign="justify"
             typography={{ xs: "body2", md: "h6" }}
           >
-            Studying is a lifelong journey. And the beautiful thing about
-            learning is that nobody can take it away from you. Stop searching,
-            enjoy the process.
+            Professional development is crucial for unlocking your full
+            potential within the realm of your career.
+          </Typography>
+          <Typography
+            //ml={24}
+            color="white"
+            mr={2}
+            gutterBottom
+            textAlign="justify"
+            typography={{ xs: "body2", md: "h6" }}
+          >
+            I have facilitated smooth and tangible{" "}
+            <span style={{ color: "#74d143" }}>progress</span> for countless
+            competent specialists operating in the fields of Tech, finance, oil
+            & gas, and many more.
           </Typography>
         </Grid>
         <Grid

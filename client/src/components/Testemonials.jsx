@@ -1,10 +1,4 @@
-import {
-  Grid,
-  Paper,
-  Typography,
-  Card,
-  Container,
-} from "@mui/material";
+import { Grid, Paper, Typography, Card, Container } from "@mui/material";
 import Carousel from "react-material-ui-carousel";
 
 const courseReviews = [
@@ -36,7 +30,7 @@ const Testemonials = () => {
       sx={{
         borderRadius: "0 12px 12px 0 ",
         background: "#1f3d2b",
-        width:"90%"
+        width: "90%",
       }}
     >
       <Grid container spacing={0}>
@@ -76,7 +70,7 @@ const Testemonials = () => {
             typography={{ xs: "h5", sm: "h4" }}
             gutterBottom
           >
-            Why Do People Love Classes with Me?
+            Why People Love Classes with Me?
           </Typography>
 
           <Typography
